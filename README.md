@@ -2,7 +2,7 @@
 
 This repository contains code (main.py) that works with a pimoroni badger 2040.
 
-To load the code the simplest way is to use Thonny (https://thonny.org/). You can drag, drop, and execute code very easily.
+To load the code the simplest way is to use Thonny (https://thonny.org/). You can drag, drop, and execute code very easily. After installing thonny go to `Tools` -> `Options`. In the resulting popup select the `Interpreter` tab. In the drop down labeled `Which kind of interpreter should Thonny use for running your code?` make sure `MicroPython (Raspberry Pi Pico)` is selected. The option `Interrupt working program on connect` should be checked.  Also make sure your badger is selected from the "Port" drop down.
 
 After loading the code on your device, you need to also load up configuration files. Each button corresponds to a specific named file such as:
 * a.txt
