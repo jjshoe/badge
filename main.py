@@ -45,14 +45,20 @@ def draw_qr_code(code, title_offset):
     qr_width, qr_height = code.get_size()
     qr_width, qr_height, scale_factor = scale_qr_code(qr_height, title_offset)
     
+    # If we can't scale evenly we should center the badge vertically
+    qr_offset = 0
+    
+    if qr_height < badger2040.HEIGHT - title_offset:
+        qr_offset = int((badger2040.HEIGHT - title_offset - qr_height) / 2)
+    
     display.pen(15)
-    display.rectangle(badger2040.WIDTH - qr_width, title_offset, qr_height, qr_width)
+    display.rectangle(badger2040.WIDTH - qr_width, title_offset + qr_offset, qr_height, qr_width)
     display.pen(0)
     
     for x in range(qr_width):
         for y in range(qr_height):
             if code.get_module(x, y):
-                display.rectangle(badger2040.WIDTH - qr_width + x * scale_factor, title_offset + y * scale_factor, scale_factor, scale_factor)
+                display.rectangle(badger2040.WIDTH - qr_width + x * scale_factor, title_offset + qr_offset + y * scale_factor, scale_factor, scale_factor)
                 
     return qr_width, qr_height
 
